@@ -15,8 +15,9 @@
         <div>
             <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #000033;">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">eCommerce</a>
-                    <asp:Button ID="btnCarrito" cssclass="btn btn-outline-warning" runat="server" Text="🛒Carrito"/>
+                    <a class="navbar-brand" href="Default.aspx">eCommerce</a>
+                    <a class="btn btn-outline-warning" href="Carrito.aspx">🛒Carrito</a>
+
                 </div>
             </nav>
 
