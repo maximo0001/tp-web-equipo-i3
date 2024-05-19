@@ -10,10 +10,18 @@ namespace TPWeb_equipo_i3
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        //List<ArticuloCarrito> articuloCarritos 
+        public List<ArticuloCarrito> CarritoList { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["ListaObjetos"] == null)
+            {
+                Session["ListaObjetos"] = new List<ArticuloCarrito>();
+            }
+
+            CarritoList = (List<ArticuloCarrito>)Session["ListaObjetos"];
+            dgvCarrito .DataSource = CarritoList;
+            dgvCarrito.DataBind();
         }
     }
 }
