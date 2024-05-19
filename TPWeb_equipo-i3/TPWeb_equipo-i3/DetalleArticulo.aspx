@@ -5,13 +5,25 @@
     <hr />
     <div class="row">
         <div class="col">
-            <img src="https://cdn.pixabay.com/photo/2023/12/21/08/08/nature-8461405_960_720.jpg" alt="Italian Trulli">
+            <asp:Repeater ID="RepeaterImagen" runat="server">
+                <ItemTemplate>
+                    <img class="w-100" src="<%# Eval("UrlImagen") %>" alt="">
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
         <div class="col">
-            <h3>Nombre Articulo</h3>
-            <label>$15000</label>
+            <asp:Label ID="lblNombreArt" cssclass="h3" runat="server" Text="Nombre Articulo"></asp:Label>
+            <br />
+            <asp:Label ID="lblPU" cssclass="h5 ms-2" runat="server" Text="$---"></asp:Label>
+            <br /><br /><br />
+            <asp:Label ID="lblCodigo" runat="server" Text="Label"></asp:Label>
+            <br />
+            <asp:Label ID="lblDescripcion" runat="server" Text="Label"></asp:Label>
+            <br /><br />
+            <small>cantidad </small>
             <asp:TextBox ID="TextBox1" textmode="Number" min="0" max="20" step="1" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Button" />
+            <br />
+            <asp:Button ID="Button1" CssClass="btn  btn-warning mt-2 w-50" runat="server" Text="Agregar al Carrito" />
         </div>
     </div>
 </asp:Content>

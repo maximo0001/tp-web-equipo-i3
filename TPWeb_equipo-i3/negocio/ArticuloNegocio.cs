@@ -9,6 +9,46 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+        public Articulo VerArticulo(int idArt)
+        {
+            Articulo art = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("select a.id, a.codigo, a.Nombre, a.Descripcion, a.Precio, m.descripcion Marca, c.descripcion Categoria, c.Id idCat, m.Id idMarca from ARTICULOS a inner join MARCAS m on m.id = a.IdMarca inner join CATEGORIAS c on c.Id = a.IdCategoria where a.Id = @ID");
+                datos.setearParametro("@ID", idArt);
+                datos.ejecutarAccion();
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    art.Id = (int)datos.Lector["id"];
+                    art.Codigo = (string)datos.Lector["codigo"];
+                    art.Nombre = (string)datos.Lector["Nombre"];
+                    art.Descripcion = (string)datos.Lector["Descripcion"];
+                    art.Precio = (float)(decimal)datos.Lector["Precio"];
+                    art.Marca = new Marca();
+                    art.Categoria = new Categoria();
+                    art.Marca.Id = (int)datos.Lector["idMarca"];
+                    art.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    art.Categoria.Id = (int)datos.Lector["idCat"];
+                    art.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                }
+
+                return art;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public List<Articulo> Listar()
         {
             List<Articulo>lista = new List<Articulo>();
