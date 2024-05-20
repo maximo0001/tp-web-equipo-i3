@@ -10,12 +10,12 @@
             <ItemTemplate>
                 <div class="col">
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                        <%--lo solucionare pasada la entrega--%>
+                        <img src="https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg" class="card-img-top w-50" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><%#Eval("Nombre")%></h5>
                             <p class="card-text"><%# Eval("Descripcion")%></p>
-                            <a class="btn btn-outline-primary" href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
-                            <asp:Button ID="btnAgregarCarrito" cssclass="btn btn-outline-warning" runat="server" Text="Agregar al carrito"/>
+                            <a class="btn btn-outline-primary w-100" href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
                         </div>
                     </div>
                 </div>

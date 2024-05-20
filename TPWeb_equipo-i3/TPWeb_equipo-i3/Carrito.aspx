@@ -4,23 +4,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>CARRITO</h2>
     <hr />
-    <style>
-        .oculto{
-            display: none;
-        }
-    </style>
-    <asp:GridView ID="dgvCarrito" datakeynames="IdArticulo" cssclass="table" autogeneratecolumns="false" runat="server">
+
+    <asp:GridView ID="dgvCarrito" DataKeyNames="IdArticulo" OnSelectedIndexChanged="dgvCarrito_SelectedIndexChanged" cssclass="table" autogeneratecolumns="false" runat="server">
         <Columns>
             <asp:BoundField HeaderText="Id" DataField="IdArticulo" HeaderStyle-CssClass="oculto" itemStyle-CssClass="oculto" />
             <asp:BoundField HeaderText="Codigo" DataField="Codigo"/>
             <asp:BoundField HeaderText="Articulo" DataField="Nombre"/>
-            <asp:TemplateField HeaderText="Cantidad">
+            <asp:BoundField HeaderText="Cantidad" DataField="Cantidad"/>            
+            <%--<asp:TemplateField HeaderText="Cantidad">
                 <ItemTemplate>
                     <asp:TextBox ID="txtCantidad" HeaderText="Cantidad" runat="server" TextMode="Number" Text='<%# Eval("Cantidad") %>'></asp:TextBox>
                 </ItemTemplate>
-            </asp:TemplateField>
-            <asp:CommandField showselectbutton="true" SelectText="Confirmar"/>
-            <asp:BoundField HeaderText="Precio" DataField="Precio"/>
+            </asp:TemplateField>--%>
+            <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Eliminar"/>
         </Columns>
     </asp:GridView>
     <div class="d-flex justify-content-end me-4">
