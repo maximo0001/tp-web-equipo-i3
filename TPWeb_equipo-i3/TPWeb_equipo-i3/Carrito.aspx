@@ -4,8 +4,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>CARRITO</h2>
     <hr />
-    <asp:GridView ID="dgvCarrito" cssclass="table" autogeneratecolumns="false" runat="server">
+    <style>
+        .oculto{
+            display: none;
+        }
+    </style>
+    <asp:GridView ID="dgvCarrito" datakeynames="IdArticulo" cssclass="table" autogeneratecolumns="false" runat="server">
         <Columns>
+            <asp:BoundField HeaderText="Id" DataField="IdArticulo" HeaderStyle-CssClass="oculto" itemStyle-CssClass="oculto" />
             <asp:BoundField HeaderText="Codigo" DataField="Codigo"/>
             <asp:BoundField HeaderText="Articulo" DataField="Nombre"/>
             <asp:TemplateField HeaderText="Cantidad">
@@ -13,7 +19,12 @@
                     <asp:TextBox ID="txtCantidad" HeaderText="Cantidad" runat="server" TextMode="Number" Text='<%# Eval("Cantidad") %>'></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="Precio" DataField="Precio" cssclass="bg-dark"/>
+            <asp:CommandField showselectbutton="true" SelectText="Confirmar"/>
+            <asp:BoundField HeaderText="Precio" DataField="Precio"/>
         </Columns>
     </asp:GridView>
+    <div class="d-flex justify-content-end me-4">
+            <small class="h3">Total: $</small>
+            <asp:Label ID="lblTotal" cssclass="h3" runat="server" Text=""></asp:Label>
+    </div>
 </asp:Content>

@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,15 @@ namespace TPWeb_equipo_i3
             CarritoList = (List<ArticuloCarrito>)Session["ListaObjetos"];
             dgvCarrito .DataSource = CarritoList;
             dgvCarrito.DataBind();
+
+            float precioTotal = 0;
+            foreach (var item in CarritoList)
+            {
+                precioTotal += (item.Cantidad * item.Precio);
+            }
+
+            lblTotal.Text = precioTotal.ToString();
         }
+
     }
 }
