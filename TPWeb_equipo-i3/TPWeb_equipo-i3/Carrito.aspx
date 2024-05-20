@@ -15,7 +15,9 @@
                 <ItemTemplate>
                     <asp:TextBox ID="txtCantidad" HeaderText="Cantidad" runat="server" TextMode="Number" Text='<%# Eval("Cantidad") %>'></asp:TextBox>
                 </ItemTemplate>
-            </asp:TemplateField>--%>
+            </asp:TemplateField>
+                
+                me ganó :(   caimos ante el mejor, muchacho--%>
             <asp:CommandField ShowSelectButton="true" SelectText="Eliminar" HeaderText="Eliminar"/>
         </Columns>
     </asp:GridView>

@@ -39,7 +39,7 @@ namespace TPWeb_equipo_i3
             CarritoList = (List<ArticuloCarrito>)Session["ListaObjetos"];
             CarritoList.RemoveAll(x => x.IdArticulo == id);
             Session["ListaObjetos"] = CarritoList;
-            Response.Redirect("#");
+            Response.Redirect("Default.aspx");
         }
     }
 }
